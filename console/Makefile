@@ -10,6 +10,7 @@ deps:
 	cd .. && make
 
 $(NAME): deps
-	$(CC) $(CFLAGS) -o $(OBJS) $(SRCS)
+	$(CC) $(CFLAGS) -c src/module.c -o src/module.o
+	$(CC) $(CFLAGS) -c src/glue.c -o src/glue.o
 	$(CC) -o src/$(SO) -shared -Wl,-soname=$(SO) -Wl,--start-group $(OBJS) -Wl,--end-group
 	rm -r $(OBJS)
