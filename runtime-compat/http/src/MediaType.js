@@ -8,6 +8,11 @@ export const TEXT_HTML = "text/html";
 export const TEXT_PLAIN = "text/plain";
 export const TEXT_CSS = "text/css";
 export const TEXT_JAVASCRIPT = "text/javascript";
+export const TEXT_XML = 'text/xml';
+// XML {{{
+export const APPLICATION_RSS = "application/rss+xml";
+export const APPLICATION_XML = "application/xml";
+export const APPLICATION_ATOM = "application/atom+xml";
 // }}}
 // images {{{
 export const IMAGE_JPEG = "image/jpeg";
@@ -17,6 +22,17 @@ export const IMAGE_WEBP = "image/webp";
 // }}}
 // fonts {{{
 export const FONT_WOFF2 = "font/woff2";
+// }}}
+// video {{{
+/*
+    application/vnd.apple.mpegurl
+    audio/mpegurl
+    application/mpegurl
+    application/x-mpegurl
+    audio/mpegurl
+    audio/x-mpegurl
+    application/vnd.apple.mpegurl.audio
+*/
 // }}}
 
 const extensions = {
@@ -29,6 +45,10 @@ const extensions = {
   css: TEXT_CSS,
   js: TEXT_JAVASCRIPT,
   mjs: TEXT_JAVASCRIPT,
+
+  xml: APPLICATION_XML,
+  rss: TEXT_XML,
+  atom: APPLICATION_ATOM,
 
   jpg: IMAGE_JPEG,
   jpeg: IMAGE_JPEG,
