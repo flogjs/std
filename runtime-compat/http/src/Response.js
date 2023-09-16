@@ -1,7 +1,7 @@
 import Headers from "./Headers.js";
 import {ReadableStream} from "runtime-compat/streams";
 import {Blob} from "runtime-compat/fs";
-import {is} from "runtime-compat/dyndef";
+import {is} from "runtime-compat/invariant";
 
 const constructors = [...new Map()
   .set(v => typeof v === "string", body => new ReadableStream({

@@ -1,6 +1,6 @@
 import {join, resolve, dirname, basename, extname} from "path";
 import {lstat, readdir} from "node:fs/promises";
-import {assert, is, defined, maybe} from "runtime-compat/dyndef";
+import {assert, is, defined, maybe} from "runtime-compat/invariant";
 import {EagerEither} from "runtime-compat/function";
 import File from "./File.js";
 

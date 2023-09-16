@@ -1,5 +1,5 @@
 import {identity} from "../function/exports.js";
-import {is} from "../dyndef/exports.js";
+import {is} from "../invariant/exports.js";
 
 /*
  * given a list of functions that accept `(input, next)` with the general

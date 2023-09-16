@@ -1,4 +1,4 @@
-import {assert, is, every} from "runtime-compat/dyndef";
+import {assert, is, every} from "runtime-compat/invariant";
 
 export default class Vector {
   #coordinates;

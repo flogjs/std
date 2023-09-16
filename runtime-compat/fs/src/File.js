@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import {mkdir, rm, readFile, writeFile, copyFile} from "node:fs/promises";
 import {Readable, Writable} from "node:stream";
-import {is, maybe} from "runtime-compat/dyndef";
+import {is, maybe} from "runtime-compat/invariant";
 import {EagerEither} from "runtime-compat/function";
 import Path from "./Path.js";
 import Blob from "./Blob.js";

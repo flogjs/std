@@ -1,4 +1,4 @@
-import {is} from "../../dyndef/exports.js";
+import {is} from "../../invariant/exports.js";
 
 const impl1 = by => (path, initial) => impl3(path, initial, by);
 

@@ -1,4 +1,4 @@
-import {is} from "../../dyndef/exports.js";
+import {is} from "../../invariant/exports.js";
 
 const extend = (base = {}, extension = {}) => {
   if (typeof base !== "object") {

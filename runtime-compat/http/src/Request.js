@@ -1,7 +1,7 @@
 import Headers from "./Headers.js";
 import {IncomingMessage} from "http";
 import {Readable} from "stream";
-import {is} from "runtime-compat/dyndef";
+import {is} from "runtime-compat/invariant";
 
 export default class Request {
   #body;

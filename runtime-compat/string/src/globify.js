@@ -1,4 +1,4 @@
-import {is} from "../../dyndef/exports.js";
+import {is} from "../../invariant/exports.js";
 
 const globify = pattern => pattern
   // . -> real dots need escaping

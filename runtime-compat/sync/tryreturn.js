@@ -1,4 +1,4 @@
-import {is} from "../dyndef/exports.js";
+import {is} from "../invariant/exports.js";
 
 export default trial => ({
   orelse(backup) {

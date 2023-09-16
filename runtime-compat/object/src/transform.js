@@ -1,4 +1,4 @@
-import {is} from "../../dyndef/exports.js";
+import {is} from "../../invariant/exports.js";
 import {identity} from "../../function/exports.js";
 import from from "./from.js";
 import to from "./to.js";

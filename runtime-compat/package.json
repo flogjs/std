@@ -1,6 +1,6 @@
 {
   "name": "runtime-compat",
-  "version": "0.27.2",
+  "version": "0.28.2",
   "description": "Flog standard library implementation for NodeJS",
   "bugs": "https://github.com/flogjs/std/issues",
   "license": "MIT",
@@ -20,7 +20,7 @@
     "./console": "./console/exports.js",
     "./colors": "./colors/exports.js",
     "./crypto": "./crypto/exports.js",
-    "./dyndef": "./dyndef/exports.js",
+    "./invariant": "./invariant/exports.js",
     "./env": "./env/exports.js",
     "./fs": "./fs/exports.js",
     "./function": "./function/exports.js",
