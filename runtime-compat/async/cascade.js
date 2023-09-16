@@ -22,6 +22,6 @@ import {is} from "../dyndef/exports.js";
 export default (fns, initial_fn = identity) => {
   is(fns).array();
 
-  return fns.reduce(async (next, fn) => value => next.then(n => fn(value, n)),
-    Promise.resolve(initial_fn));
+  return fns.reduceRight(async (next, fn) => value => next.then(n =>
+    fn(value, n)), Promise.resolve(initial_fn));
 };
