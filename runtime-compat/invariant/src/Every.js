@@ -1,4 +1,3 @@
-import Is from "./Is.js";
 import assert from "./assert.js";
 
 const test = ({condition, def, error}) => assert(condition, error || def);
@@ -6,8 +5,7 @@ const test = ({condition, def, error}) => assert(condition, error || def);
 export default class Every {
   #values;
 
-  constructor(values) {
-    new Is(values).array();
+  constructor(...values) {
     this.#values = values;
   }
 
