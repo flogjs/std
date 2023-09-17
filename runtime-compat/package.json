@@ -1,6 +1,6 @@
 {
   "name": "runtime-compat",
-  "version": "0.28.2",
+  "version": "0.28.3",
   "description": "Flog standard library implementation for NodeJS",
   "bugs": "https://github.com/flogjs/std/issues",
   "license": "MIT",
