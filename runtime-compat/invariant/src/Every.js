@@ -22,7 +22,19 @@ export default class Every {
     return this.#test({condition, def, error});
   }
 
+  string(error) {
+    return this.#typeof("string", error);
+  }
+
   number(error) {
     return this.#typeof("number", error);
+  }
+
+  bigint(error) {
+    return this.#typeof("bigint", error);
+  }
+
+  boolean(error) {
+    return this.#typeof("boolean", error);
   }
 }
