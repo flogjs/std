@@ -2,7 +2,7 @@ import Is from "./src/Is.js";
 import Every from "./src/Every.js";
 
 const is = value => new Is(value);
-const every = value => new Every(value);
+const every = (...values) => new Every(...values);
 const defined = (value, error) => is(value).defined(error);
 
 export {is, every, defined};
