@@ -15,7 +15,7 @@ export default class Every {
   }
 
   #typeof(type, error) {
-    const def = `all this array's values must be of type ${type}`;
+    const def = `all the values must be of type ${type}`;
     const condition = this.#values.every(v => typeof v === type);
     return this.#test({condition, def, error});
   }
@@ -36,7 +36,29 @@ export default class Every {
     return this.#typeof("boolean", error);
   }
 
+  symbol(error) {
+    return this.#typeof("symbol", error);
+  }
+
   function(error) {
     return this.#typeof("function", error);
+  }
+
+  integer(error) {
+    const def = "all the values must be integers";
+    const condition = this.#values.every(v => Number.isInteger(v));
+    return this.#test({condition, def, error});
+  }
+
+  // (signed) integers
+  isize(error) {
+    return this.integer(error);
+  }
+
+  // unsigned (positive) integer
+  usize(error) {
+    const def = "all the values must be positive integers";
+    const condition = this.#values.every(v => Number.isInteger(v) && v > 0);
+    return this.#test({condition, def, error});
   }
 }
