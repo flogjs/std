@@ -3,7 +3,7 @@ import Vector from "./Vector.js";
 export default test => {
   test.case("constructor", assert => {
     assert(() => new Vector()).throws();
-    assert(() => new Vector(1)).not_throws();
+    assert(() => new Vector(1)).nthrows();
   });
 
   test.case("length", assert => {
