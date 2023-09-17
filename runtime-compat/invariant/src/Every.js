@@ -35,4 +35,8 @@ export default class Every {
   boolean(error) {
     return this.#typeof("boolean", error);
   }
+
+  function(error) {
+    return this.#typeof("function", error);
+  }
 }
