@@ -2,6 +2,7 @@ import Headers from "./Headers.js";
 import {ReadableStream} from "runtime-compat/streams";
 import {Blob} from "runtime-compat/fs";
 import {is} from "runtime-compat/invariant";
+import is_bun from "../../is_bun.js";
 
 const constructors = [...new Map()
   .set(v => typeof v === "string", body => new ReadableStream({
@@ -24,7 +25,7 @@ const constructors = [...new Map()
   .entries()]
 ;
 
-export default class Response {
+const NodeResponse = class NodeResponse {
   #body;
   #status;
   #headers = new Headers();
@@ -52,3 +53,5 @@ export default class Response {
     return this.#headers;
   }
 }
+
+export default is_bun ? Response : NodeResponse;

@@ -1,4 +1,4 @@
-import {join, resolve, dirname, basename, extname} from "path";
+import {join, resolve, dirname, basename, extname} from "node:path";
 import {lstat, readdir} from "node:fs/promises";
 import {assert, is, defined, maybe} from "runtime-compat/invariant";
 import {EagerEither} from "runtime-compat/function";
@@ -7,7 +7,7 @@ import File from "./File.js";
 const file_prefix = 7;
 const parse = p => p.startsWith("file://") ? p.slice(file_prefix) : p;
 
-const assertBoundary = directory => {
+const assert_boundary = directory => {
   is(directory).instance(Path);
   if (`${directory}` === "/") {
     throw new Error("Stopping at filesystem boundary");
@@ -62,7 +62,7 @@ export default class Path {
     let paths = await this.list(({name}) => !name.startsWith("."));
     for (const path of paths) {
       if (await path.isDirectory) {
-        paths = paths.concat(await path.glob(pattern, options));
+        paths = paths.concat(await path.glob(pattern));
       } else if (path.is(new RegExp(pattern, "u"))) {
         paths.push(path);
       }
@@ -171,7 +171,7 @@ export default class Path {
       return this;
     }
     const {directory} = this;
-    assertBoundary(directory, "Stopping at filesystem boundary");
+    assert_boundary(directory, "Stopping at filesystem boundary");
     return directory.up(levels - 1);
   }
 
@@ -189,7 +189,7 @@ export default class Path {
       return this;
     }
     const {directory} = this;
-    assertBoundary(directory);
+    assert_boundary(directory);
     return directory.discover(filename);
   }
 

@@ -1,8 +1,8 @@
 export default {
   encode(decoded) {
-    return Buffer.from(decoded).toString("base64");
+    return btoa(decoded);
   },
   decode(encoded) {
-    return Buffer.from(encoded, "base64").toString("ascii");
+    return atob(encoded);
   },
 };

@@ -1,4 +1,4 @@
 export {
   setTimeout, clearTimeout,
-  setInterval, clearInterval
+  setInterval, clearInterval,
 } from "node:timers";
