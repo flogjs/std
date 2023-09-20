@@ -1,4 +1,4 @@
-import {is} from "../../invariant/exports.js";
+import {is} from "runtime-compat/invariant";
 
 const globify = pattern => pattern
   // . -> real dots need escaping

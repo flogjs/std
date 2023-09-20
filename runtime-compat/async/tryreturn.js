@@ -1,4 +1,4 @@
-import {is} from "../invariant/exports.js";
+import {is} from "runtime-compat/invariant";
 const $backup = Symbol("backup");
 
 export default trial => ({

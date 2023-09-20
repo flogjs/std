@@ -1,4 +1,4 @@
-import {is} from "../invariant/exports.js";
+import {is} from "runtime-compat/invariant";
 
 export default trial => ({
   orelse(backup) {

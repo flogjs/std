@@ -1,1 +1,1 @@
-export {default} from "./src/module.js";
+export {default} from "./module.js";

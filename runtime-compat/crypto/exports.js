@@ -1,4 +1,4 @@
+import {runtime} from "runtime-compat/meta";
 import {webcrypto as node_crypto} from "node:crypto";
-import is_bun from "../is_bun.js";
 
-export default is_bun ? crypto : node_crypto;
+export default runtime === "bun" ? crypto : node_crypto;

@@ -1,12 +1,10 @@
 import {parse} from "dotenv";
-import {Path} from "../../fs/exports.js";
-import {tryreturn} from "../../async/exports.js";
-import is_bun from "../../is_bun.js";
+import {runtime} from "runtime-compat/meta";
+import {Path} from "runtime-compat/fs";
+import {tryreturn} from "runtime-compat/async";
 
+const {JS_ENV} = runtime === "bun" ? Bun.env : process.env;
 const root = await Path.root();
-
-const {JS_ENV} = is_bun ? Bun.env : process.env;
-
 const env = root.join(`.env${JS_ENV ? `.${JS_ENV}` : ""}`);
 const local = new Path(`${env.path}.local`);
 

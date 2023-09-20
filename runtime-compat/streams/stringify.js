@@ -1,4 +1,4 @@
-import {defined} from "../function/exports.js";
+import {defined} from "runtime-compat/function";
 import {ReadableStream} from "./exports.js";
 
 const decoder = new TextDecoder();

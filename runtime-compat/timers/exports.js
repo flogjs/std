@@ -1,4 +1,3 @@
-export {
-  setTimeout, clearTimeout,
-  setInterval, clearInterval,
-} from "node:timers";
+const {setTimeout, clearTimeout, setInterval, clearInterval} = globalThis;
+
+export {setTimeout, clearTimeout, setInterval, clearInterval};

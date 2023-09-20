@@ -8,7 +8,7 @@ export const TEXT_HTML = "text/html";
 export const TEXT_PLAIN = "text/plain";
 export const TEXT_CSS = "text/css";
 export const TEXT_JAVASCRIPT = "text/javascript";
-export const TEXT_XML = 'text/xml';
+export const TEXT_XML = "text/xml";
 // XML {{{
 export const APPLICATION_RSS = "application/rss+xml";
 export const APPLICATION_XML = "application/xml";

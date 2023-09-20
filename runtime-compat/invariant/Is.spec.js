@@ -18,7 +18,7 @@ export default test => {
       values.forEach(value => {
         assert(new Is(value)[key]()).equals(value);
         nonValues.forEach(nonValue =>
-          assert(() => new Is(nonValue)[key]()).throws())
+          assert(() => new Is(nonValue)[key]()).throws());
       });
     });
   });

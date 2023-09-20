@@ -1,26 +1,11 @@
 import {Writable} from "stream";
 import Request from "./Request.js";
-import is_bun from "../../is_bun.js";
+import get_options from "./get-options.js";
+import secure from "./secure.js";
 
-const secure = ({ssl}) => ssl?.key !== undefined && ssl.cert !== undefined;
 const dedouble = url => url.replaceAll(/\/{1,}/ug, () => "/");
 
-const get_options = async conf => secure(conf)
-  ? {
-    key: await conf.ssl.key.file.read(),
-    cert: await conf.ssl.cert.file.read(),
-  } : {};
-
-const bun_serve = async (handler, conf) => {
-  return Bun.serve({
-    port: conf.port,
-    hostname: conf.host,
-    fetch: request => handler(request),
-    tls: await get_options(conf),
-  });
-}
-
-const node_serve = async(handler, conf) =>
+export default async (handler, conf) =>
   import(secure(conf) ? "https" : "http").then(async ({createServer}) =>
     createServer(await get_options(conf), async (req, res) => {
       // handler gets a WHATWG Request, and returns a WHATWG Response
@@ -49,5 +34,3 @@ const node_serve = async(handler, conf) =>
         await body.cancel();
       }
     }).listen(conf.port, conf.host));
-
-export default is_bun ? bun_serve : node_serve;

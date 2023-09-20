@@ -1,4 +1,4 @@
-import {identity} from "../function/exports.js";
+import {identity} from "runtime-compat/function";
 import tryreturn from "./tryreturn.js";
 
 export default test => {

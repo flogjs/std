@@ -1,6 +1,7 @@
-import is_bun from "../is_bun.js";
+import {runtime} from "runtime-compat/meta";
 import * as node_streams from "node:stream/web";
 
+const is_bun = runtime === "bun";
 const RS = is_bun ? ReadableStream : node_streams.ReadableStream;
 const WS = is_bun ? WritableStream : node_streams.WritableStream;
 const TS = is_bun ? TransformStream : node_streams.TransformStream;

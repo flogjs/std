@@ -1,5 +1,5 @@
-import {is} from "../../invariant/exports.js";
-import {identity} from "../../function/exports.js";
+import {is} from "runtime-compat/invariant";
+import {identity} from "runtime-compat/function";
 import from from "./from.js";
 import to from "./to.js";
 

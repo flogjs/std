@@ -1,10 +1,9 @@
-import Headers from "./Headers.js";
+import {Headers} from "./exports.js";
 import {IncomingMessage} from "http";
 import {Readable} from "stream";
 import {is} from "runtime-compat/invariant";
-import is_bun from "../../is_bun.js";
 
-const NodeRequest = class Request {
+export default class Request {
   #body;
   #headers = new Headers();
   #url;
@@ -45,5 +44,3 @@ const NodeRequest = class Request {
     return this.#method;
   }
 }
-
-export default is_bun ? Request : NodeRequest;

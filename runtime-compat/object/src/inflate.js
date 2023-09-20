@@ -1,4 +1,4 @@
-import {is} from "../../invariant/exports.js";
+import {is} from "runtime-compat/invariant";
 
 const impl1 = by => (path, initial) => impl3(path, initial, by);
 

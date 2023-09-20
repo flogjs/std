@@ -1,10 +1,10 @@
-export {default as Headers} from "./src/Headers.js";
-export {default as Response} from "./src/Response.js";
-export {default as Request} from "./src/Request.js";
-export * as Status from "./src/Status.js";
-export * as MediaType from "./src/MediaType.js";
-export {default as FormData} from "./src/FormData.js";
-export {default as URL} from "./src/URL.js";
-export {default as URLSearchParams} from "./src/URLSearchParams.js";
-export {default as fetch} from "./src/fetch.js";
-export {default as serve} from "./src/serve.js";
+const {fetch, FormData, Headers, URL, URLSearchParams} = globalThis;
+export {fetch, FormData, Headers, URL, URLSearchParams};
+
+export {default as Response} from "./Response.js";
+export {default as Request} from "./Request.js";
+export * as Status from "./Status.js";
+export * as MediaType from "./MediaType.js";
+
+export {default as serve} from "./serve.js";
+

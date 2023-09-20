@@ -1,5 +1,5 @@
-import {identity} from "../function/exports.js";
-import {is} from "../invariant/exports.js";
+import {is} from "runtime-compat/invariant";
+import {identity} from "runtime-compat/function";
 
 /*
  * given a list of functions that accept `(input, next)` with the general
