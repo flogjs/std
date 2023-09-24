@@ -11,7 +11,7 @@
   "repository": "https://github.com/flogjs/std/tree/master/runtime-compat",
   "devDependencies": {
     "debris": "^0.14.0",
-    "maximin": "^0.1.9"
+    "maximin": "^0.2.0"
   },
   "type": "module",
   "exports": {
