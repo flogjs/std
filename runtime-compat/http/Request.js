@@ -1,5 +1,5 @@
-import BunRequest from "./BunRequest.js";
+import NativeRequest from "./NativeRequest.js";
 import NodeRequest from "./NodeRequest.js";
 import {runtime} from "runtime-compat/meta";
 
-export default runtime === "bun" ? BunRequest : NodeRequest;
+export default runtime === "node" ? NodeRequest : NativeRequest;

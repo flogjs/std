@@ -1,5 +1,8 @@
-import {runtime} from "runtime-compat/meta";
-import bun_serve from "./bun-serve.js";
-import node_serve from "./node-serve.js";
+import { runtime } from "runtime-compat/meta";
+import bun from "./bun-serve.js";
+import deno from "./deno-serve.js";
+import node from "./node-serve.js";
 
-export default runtime === "bun" ? bun_serve : node_serve;
+const serve = { bun, deno, node };
+
+export default serve[runtime];

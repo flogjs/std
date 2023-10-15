@@ -1,7 +1,10 @@
 const packager = import.meta.runtime?.packager ?? "npm";
 const manifest = import.meta.runtime?.manifest ?? "package.json";
 const library = import.meta.runtime?.library ?? "node_modules";
-const runtime = typeof Bun === "undefined" ? "node" : "bun";
+
+const is_bun = typeof Bun !== "undefined";
+const is_deno = typeof Deno !== "undefined";
+const runtime = is_bun ? "bun" : is_deno ? "deno" : "node";
 
 export { packager, manifest, library, runtime };
-import { default as depend } from "./depend.js";
+export { default as depend } from "./depend.js";
