@@ -1,5 +1,5 @@
 import fs from "node:fs";
-import {mkdir, rm, readFile, writeFile, copyFile} from "node:fs/promises";
+import {mkdir, rm, readFile, writeFile, copyFile, realpath} from "node:fs/promises";
 import {Readable, Writable} from "node:stream";
 import {is, maybe} from "runtime-compat/invariant";
 import {EagerEither} from "runtime-compat/function";
@@ -49,6 +49,10 @@ export default class File extends Blob {
 
   get isDirectory() {
     return this.#path.isDirectory;
+  }
+
+  get isSymlink() {
+    return this.#path.isSymlink;
   }
 
   static exists(path) {
@@ -151,6 +155,10 @@ export default class File extends Blob {
   async copy(toPath, filter = () => true) {
     is(toPath).anyOf(["string", Path, File]);
     is(filter).function();
+
+    if (await this.isSymlink) {
+      return new Path(await realpath(this.path)).file.copy(toPath, filter);
+    }
 
     const to = new Path(toPath);
     if (await this.isDirectory) {
