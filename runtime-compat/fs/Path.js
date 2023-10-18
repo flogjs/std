@@ -136,6 +136,11 @@ export default class Path {
       exists ? this.#stats.then(stats => stats.isDirectory()) : false);
   }
 
+  get isSymlink() {
+    return this.exists.then(exists =>
+      exists ? this.#stats.then(stats => stats.isSymbolicLink()) : false);
+  }
+
   get directory() {
     return new Path(dirname(this.path));
   }

@@ -1,8 +1,8 @@
 import fs from "node:fs";
-import {mkdir, rm, readFile, writeFile, copyFile, realpath} from "node:fs/promises";
-import {Readable, Writable} from "node:stream";
-import {is, maybe} from "runtime-compat/invariant";
-import {EagerEither} from "runtime-compat/function";
+import { mkdir, rm, readFile, writeFile, copyFile, realpath } from "node:fs/promises";
+import { Readable, Writable } from "node:stream";
+import { is, maybe } from "runtime-compat/invariant";
+import { EagerEither } from "runtime-compat/function";
 import Path from "./Path.js";
 import Blob from "./Blob.js";
 
@@ -60,7 +60,7 @@ export default class File extends Blob {
   }
 
   get readable() {
-    return Readable.toWeb(fs.createReadStream(this.path, {flags: "r"}));
+    return Readable.toWeb(fs.createReadStream(this.path, { flags: "r" }));
   }
 
   static readable(path) {
@@ -118,14 +118,14 @@ export default class File extends Blob {
   async #collect(pattern, options) {
     return EagerEither
       .try(() => this.#path.list(() => true))
-      .match({left: () => []})
+      .match({ left: () => [] })
       .map(async list => {
         let files = [];
         for (const path of list) {
           if (path.name.startsWith(".")) {
             continue;
           }
-          const {file} = path;
+          const { file } = path;
           if (options?.recursive && await file.isDirectory) {
             files = files.concat(await file.#collect(pattern, options));
           } else if (pattern === undefined ||
@@ -166,7 +166,7 @@ export default class File extends Blob {
       await File.recreate(toPath);
       // copy all files
       return Promise.all((await this.#path.list(filter))
-        .map(({name}) => new File(this, name).copy(to.join(name))));
+        .map(({ name }) => new File(this, name).copy(to.join(name))));
     }
 
     return copyFile(this.path, to.path);
