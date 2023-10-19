@@ -222,4 +222,11 @@ export default class Path {
   static join(...[first, ...rest]) {
     return new Path(first).join(...rest);
   }
+
+  static same(left, right) {
+    is(left.path).string();
+    is(right.path).string();
+
+    return left.path === right.path;
+  }
 }
