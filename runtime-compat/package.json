@@ -27,6 +27,7 @@
     "./http": "./http/exports.js",
     "./math": "./math/exports.js",
     "./meta": "./meta/exports.js",
+    "./module": "./module/exports.js",
     "./object": "./object/exports.js",
     "./stdio": "./stdio/exports.js",
     "./streams": "./streams/exports.js",
