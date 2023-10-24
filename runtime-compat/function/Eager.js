@@ -1,4 +1,4 @@
-import {inconstructible_function} from "runtime-compat/invariant";
+import { inconstructible_function } from "runtime-compat/invariant";
 
 const $promise = Symbol("#promise");
 
@@ -18,14 +18,14 @@ const handler = {
   },
   apply(target, that, args) {
     return Eager.resolve(target[$promise].then(result =>
-      typeof result === "function" ? result.apply(that, args) : result
+      typeof result === "function" ? result.apply(that, args) : result,
     ));
   },
 };
 
 export default class Eager {
-  constructor(resolve, reject) {
-    const promise = new Promise(resolve, reject);
+  constructor(executor) {
+    const promise = new Promise(executor);
     const callable = () => undefined;
     callable[$promise] = promise;
     return new Proxy(callable, handler);
@@ -42,7 +42,7 @@ export default class Eager {
   static async tag(strings, ...keys) {
     const last = -1;
     return (await Promise.all(strings.slice(0, last).map(async (string, i) =>
-      string + await keys[i]
+      string + await keys[i],
     ))).join("") + strings.at(last);
   }
 }
